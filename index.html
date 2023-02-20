@@ -6,7 +6,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Weather App</title>
     <link rel="stylesheet" href="style.css" />
-    <script src="main.js"></script>
+    <script src="main.js" defer></script>
   </head>
-  <body></body>
+  <body>
+    <div class="container">
+      <form action="" id="form" novalidate>
+        <input type="text" id="city" placeholder="Enter city name" />
+        <button id="button">Add</button>
+      </form>
+
+      <div class="search-result" id="searchResult">
+        <h3 id="cityName"></h3>
+        <p id="temperature"></p>
+        <p id="feelsLike"></p>
+        <p id="humidity"></p>
+        <p id="wind"></p>
+      </div>
+    </div>
+  </body>
 </html>
