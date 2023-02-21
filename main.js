@@ -1,6 +1,12 @@
 const city = document.getElementById("city");
 const form = document.getElementById("form");
-const tempText = document.getElementById("temperature");
+
+const searchResult = document.querySelector(".search-result");
+const cityName = document.getElementById("cityName");
+const temperature = document.getElementById("temperature");
+const feelsLike = document.getElementById("feelsLike");
+const humidity = document.getElementById("humidity");
+const wind = document.getElementById("wind");
 
 form.addEventListener("submit", async (e) => {
   e.preventDefault();
@@ -11,10 +17,12 @@ form.addEventListener("submit", async (e) => {
         "&APPID=148ffbfd3e481debec062bd19cd9505c&units=imperial"
     );
     const weatherData = await response.json();
-    console.log(weatherData.main.feels_like);
-    console.log(weatherData.main.humidity);
-    console.log(weatherData.wind.speed);
-    tempText.textContent = weatherData.main.temp + " F";
+    searchResult.classList = "active";
+    cityName.textContent = `${city.value}`;
+    temperature.textContent = `${weatherData.main.temp} Fahrenheit`;
+    feelsLike.textContent = `Feels like ${weatherData.main.feels_like} Fahrenheit`;
+    humidity.textContent = `Humidity: ${weatherData.main.humidity}%`;
+    wind.textContent = `Wind: ${weatherData.wind.speed} mph`;
   } catch (error) {
     console.error("Error", error);
   }
@@ -23,4 +31,4 @@ form.addEventListener("submit", async (e) => {
 //got the values from the weather API
 //Just want to render them once the name of the city has been entered.
 
-//part of the project to focus on: dynamically render a div when user submits a location
+//part of the project to focus on: dynamically render a div when user submis
